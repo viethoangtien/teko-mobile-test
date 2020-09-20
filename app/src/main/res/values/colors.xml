@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#DF2020</color>
+    <color name="colorPrimaryDark">#F5471E</color>
+    <color name="colorAccent">#ffd95b</color>
+
+    <color name="color_tomato">#EA341F</color>
+    <color name="color_main_start">#DF2020</color>
+    <color name="color_main_end">#F5471E</color>
+    <color name="color_hint_search">#8F9598</color>
+    <color name="color_text_dark">#262829</color>
+    <color name="color_grey_divider">#EEF1F3</color>
+    <color name="color_badge">#F58400</color>
+    <color name="color_pale_grey">#EEF1F3</color>
+    <color name="color_grey">#8F9598</color>
+    <color name="color_white_alpha_0">#00FFFFFF</color>
+    <color name="color_deep_sky_blue">#1E75F6</color>
+</resources>

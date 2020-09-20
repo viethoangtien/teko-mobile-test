@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_search"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/search_frame_size"
+    android:background="@drawable/bg_main_color">
+
+    <ImageView
+        android:id="@+id/imv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/margin_12_dp"
+        android:src="@drawable/ic_arrow_back" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/margin_12_dp"
+        android:layout_marginTop="@dimen/margin_8_dp"
+        android:layout_marginEnd="@dimen/margin_12_dp"
+        android:layout_marginBottom="@dimen/margin_8_dp"
+        android:layout_toRightOf="@id/imv_back"
+        app:cardCornerRadius="@dimen/radius_8_dp"
+        app:cardElevation="@dimen/elevation_8_dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_8_dp"
+                android:src="@drawable/ic_search" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_8_dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="@dimen/margin_8_dp"
+                android:layout_toRightOf="@id/imv_search"
+                android:background="@color/md_white_1000"
+                android:hint="@string/list_product_search_hint"
+                android:lines="1"
+                android:maxLines="1"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColorHint="@color/color_hint_search"
+                android:textSize="@dimen/textsize_14_sp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

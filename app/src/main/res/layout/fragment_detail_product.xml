@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productResponse"
+            type="com.teko.hoangviet.androidtest.data.network.response.ProductResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_white_1000">
+
+        <com.teko.hoangviet.androidtest.custom.view.ToolbarProduct
+            android:id="@+id/toolbar_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsv_detail_product"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/layout_cart"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_product">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    style="@style/Divider"
+                    android:layout_height="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vp_product" />
+
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/ci_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="@dimen/margin_16_dp"
+                    app:ci_animator="@anim/anim_circleindicator"
+                    app:ci_animator_reverse="@anim/anim_circleindicator"
+                    app:ci_drawable="@drawable/bg_ci_selected"
+                    app:ci_drawable_unselected="@drawable/bg_ci_unselected"
+                    app:ci_gravity="center"
+                    app:ci_height="@dimen/content_padding_8_dp"
+                    app:ci_width="@dimen/content_padding_8_dp"
+                    app:layout_constraintBottom_toBottomOf="@id/vp_product" />
+
+                <LinearLayout
+                    android:id="@+id/ll_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/content_padding_12_dp"
+                    app:layout_constraintTop_toBottomOf="@id/vp_product">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@{productResponse.name}"
+                        android:textColor="@color/color_text_dark"
+                        android:textSize="@dimen/textsize_17_sp"
+                        android:textStyle="bold"
+                        tools:text="Bộ vi xử lý/ CPU Core I7-7800X (3.50 GHz)" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4_dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/product_code_title"
+                            android:textSize="@dimen/textsize_12_sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/content_padding_4_dp"
+                            android:text="@{productResponse.code}"
+                            android:textColor="@color/color_deep_sky_blue"
+                            android:textSize="@dimen/textsize_12_sp"
+                            tools:text="9187691276" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8_dp"
+                        android:background="@drawable/bg_out_of_stock"
+                        android:text="@string/out_of_stock_title"
+                        android:textColor="@color/color_grey"
+                        android:textSize="@dimen/textsize_12_sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8_dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tv_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="@dimen/margin_4_dp"
+                                android:textColor="@color/color_tomato"
+                                android:textSize="@dimen/textsize_17_sp"
+                                android:textStyle="bold"
+                                app:price="@{productResponse.price}"
+                                tools:text="8.790.000" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/tv_price"
+                                android:text=" đ"
+                                android:textColor="@color/color_tomato"
+                                android:textSize="@dimen/textsize_17_sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_4_dp"
+                            android:textSize="@dimen/textsize_12_sp"
+                            app:priceDiscount="@{productResponse.price}"
+                            tools:text="10.970.000" />
+
+                        <TextView
+                            android:id="@+id/tv_discount_percent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_4_dp"
+                            android:layout_toRightOf="@id/tv_discount"
+                            android:background="@drawable/bg_triangle_discount"
+                            android:paddingStart="@dimen/content_padding_8_dp"
+                            android:text="-100%"
+                            android:textColor="@color/md_white_1000"
+                            android:textSize="@dimen/textsize_12_sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    style="@style/Divider"
+                    android:layout_height="@dimen/margin_8_dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_info" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/csl_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/md_white_1000"
+                    app:layout_constraintTop_toBottomOf="@id/divider">
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/tab_layout_height"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tabIndicatorColor="@color/color_tomato"
+                        app:tabIndicatorHeight="@dimen/tab_indicator_height"
+                        app:tabSelectedTextColor="@color/color_text_dark"
+                        app:tabTextAppearance="@style/TabTextAppearance"
+                        app:tabTextColor="@color/color_grey" />
+
+                    <View
+                        style="@style/Divider"
+                        android:layout_height="1dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tab_detail" />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/vp_detail_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/view_pager_height"
+                        android:layout_below="@id/tab_detail"
+                        app:layout_constraintTop_toBottomOf="@id/tab_detail" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_show_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/content_padding_12_dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/show_more"
+                            android:textColor="@color/color_deep_sky_blue"
+                            android:textSize="@dimen/textsize_13_sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_chevron_down" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/alpha_height"
+                        android:background="@drawable/bg_show_more"
+                        app:layout_constraintBottom_toTopOf="@id/ll_show_more" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/divider_info"
+                    style="@style/Divider"
+                    android:layout_height="@dimen/margin_8_dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/csl_info" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_same_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/content_padding_12_dp"
+                    android:paddingTop="@dimen/content_padding_12_dp"
+                    android:paddingBottom="@dimen/content_padding_16_dp"
+                    app:layout_constraintTop_toBottomOf="@id/divider_info">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/same_type" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_same_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16_dp" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/Divider"
+                    android:layout_height="@dimen/margin_8_dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_same_type" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/layout_cart"
+            layout="@layout/layout_cart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

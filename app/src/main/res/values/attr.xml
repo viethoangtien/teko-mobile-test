@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClearableEditText">
+        <attr name="android:text" />
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="android:hint" />
+        <attr name="android:lines" />
+        <attr name="android:inputType" />
+        <attr name="android:textColorHint" />
+        <attr name="edtPadding" format="dimension" />
+        <attr name="edtIcon" format="integer|reference" />
+        <attr name="edtUnderlineColor" format="color" />
+        <attr name="edtBackground" format="integer|reference" />
+        <attr name="edtGravityCentered" format="boolean" />
+        <attr name="clearButtonDrawable" format="integer|reference" />
+        <attr name="clearButtonSize" format="dimension" />
+        <attr name="edtEditable" format="boolean" />
+        <attr name="edtMaxLength" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseRecyclerView">
+        <attr name="brv_padding" format="dimension" />
+        <attr name="brv_background" format="integer|reference" />
+        <attr name="brv_padding_start" format="dimension" />
+        <attr name="brv_padding_end" format="dimension" />
+        <attr name="brv_padding_top" format="dimension" />
+        <attr name="brv_padding_bottom" format="dimension" />
+        <attr name="brv_enable_refresh" format="boolean" />
+        <attr name="brv_text_no_result" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="NotificationBadge">
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="nbBackground" format="reference" />
+        <attr name="nbAnimationEnabled" format="boolean" />
+        <attr name="nbAnimationDuration" format="integer" />
+        <attr name="nbMaxTextLength" format="integer" />
+        <attr name="nbEllipsizeText" format="string" />
+    </declare-styleable>
+</resources>

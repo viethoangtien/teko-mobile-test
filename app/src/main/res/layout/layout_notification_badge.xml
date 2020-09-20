@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible"
+    tools:layout_height="wrap_content"
+    tools:layout_width="wrap_content"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/iv_badge_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_badge" />
+
+    <TextView
+        android:textSize="@dimen/textsize_10_sp"
+        android:id="@+id/tv_badge_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/md_white_1000"
+        tools:text="99" />
+
+</FrameLayout>

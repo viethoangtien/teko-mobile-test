@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="loadMoreData"
+            type="com.teko.hoangviet.androidtest.data.local.model.LoadMoreData" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.Holo.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:visibility="@{loadMoreData.retry ? View.GONE : View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/btn_retry"
+            style="@style/Text.WrapWidth.White"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_retry"
+            android:paddingHorizontal="@dimen/content_padding_32_dp"
+            android:paddingVertical="@dimen/content_padding_8_dp"
+            android:text="Retry"
+            android:textSize="@dimen/textsize_18_sp"
+            android:textStyle="bold"
+            android:visibility="@{loadMoreData.retry ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>

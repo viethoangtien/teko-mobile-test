@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Teko</string>
+    <string name="file_provider">base.mvvm.provider</string>
+    <string name="txt_error_network">Lỗi mạng</string>
+    <string name="txt_network">Bạn vui lòng bật wifi hoặc dữ liệu di động để sử dụng app!</string>
+
+    //alert
+    <string name="alert_title">Thông báo</string>
+    <string name="alert_message">Cho phép truy cập vị trí của bạn</string>
+    <string name="alert_positive_title">Đồng ý</string>
+    <string name="alert_negative_title">Hủy bỏ</string>
+
+    //list product
+    <string name="list_product_search_hint">Nhập tên, mã sản phẩm</string>
+
+    //Detail product
+    <string name="product_code_title">Mã SP: </string>
+    <string name="out_of_stock_title">Tạm hết hàng</string>
+    <string name="tab_description">Mô tả sản phẩm</string>
+    <string name="tab_technical">Thông số kỹ thuật</string>
+    <string name="tab_comparing">So sánh giá</string>
+    <string name="show_more">Hiển thị nhiều hơn</string>
+    <string name="same_type">Sản phẩm cùng loại</string>
+</resources>
