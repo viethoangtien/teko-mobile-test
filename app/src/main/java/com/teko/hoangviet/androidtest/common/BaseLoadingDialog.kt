@@ -51,4 +51,5 @@ class BaseLoadingDialog private constructor(private var context: Context) {
     private fun initialization() {
         shown = false
     }
+
 }

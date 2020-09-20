@@ -12,12 +12,10 @@ import com.teko.hoangviet.androidtest.adapter.SameTypeAdapter
 import com.teko.hoangviet.androidtest.base.ui.BaseFragment
 import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentDetailProductBinding
-import com.teko.hoangviet.androidtest.extension.argument
-import com.teko.hoangviet.androidtest.extension.completableTimer
-import com.teko.hoangviet.androidtest.extension.injectActivityViewModel
-import com.teko.hoangviet.androidtest.extension.injectViewModel
+import com.teko.hoangviet.androidtest.extension.*
 import com.teko.hoangviet.androidtest.ui.main.MainViewModel
 import kotlinx.android.synthetic.main.fragment_detail_product.*
+import kotlinx.android.synthetic.main.layout_toolbar_product.view.*
 
 @LayoutId(R.layout.fragment_detail_product)
 class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
@@ -67,6 +65,9 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
                 handleListResponse(it)
             }
         })
+        toolbar_product.imv_back.onAvoidDoubleClick {
+            viewController.backFromAddFragment(null)
+        }
     }
 
     private fun initDetailViewPager() {

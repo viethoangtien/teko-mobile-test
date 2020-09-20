@@ -16,6 +16,6 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllProduct(data: List<ProductResponse>)
 
-    @Query("SELECT * FROM product WHERE name LIKE :listKeyWord")
+    @Query("SELECT * FROM product WHERE name LIKE :listKeyWord OR code LIKE :listKeyWord")
     fun search(listKeyWord: List<String>): LiveData<List<ProductResponse>>
 }

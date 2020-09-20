@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_white_1000">
+        android:background="@color/md_white_1000"
+        android:clickable="true">
 
         <com.teko.hoangviet.androidtest.custom.view.ToolbarProduct
             android:id="@+id/toolbar_product"
