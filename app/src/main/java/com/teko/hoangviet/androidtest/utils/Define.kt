@@ -34,4 +34,8 @@ object Define {
             const val DETAIL_PRODUCT = "detailProduct"
         }
     }
+
+    object Database {
+        const val NAME = "Teko"
+    }
 }

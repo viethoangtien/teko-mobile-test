@@ -85,4 +85,7 @@ ext {
     //CustomView
     circle_indicator_version = '2.1.4'
 
+    //Room Database
+    room_version = '2.2.5'
+
 }

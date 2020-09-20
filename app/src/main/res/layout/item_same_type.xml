@@ -6,7 +6,7 @@
     <data>
         <variable
             name="productResponse"
-            type="com.teko.hoangviet.androidtest.data.network.response.ProductResponse" />
+            type="com.teko.hoangviet.androidtest.data.local.model.ProductResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

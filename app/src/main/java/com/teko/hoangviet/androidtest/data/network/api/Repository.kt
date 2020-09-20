@@ -8,5 +8,5 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class Repository @Inject constructor(val apiService: ApiService) {
-    fun listProduct() = apiService.listProduct().backgroundThreadProcess()
+    fun listProduct() = apiService.listProduct()
 }

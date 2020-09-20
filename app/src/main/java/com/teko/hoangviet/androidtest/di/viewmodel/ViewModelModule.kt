@@ -2,13 +2,13 @@ package com.teko.hoangviet.androidtest.di.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.teko.hoangviet.androidtest.ui.product.list.ListProductViewModel
 import com.teko.hoangviet.androidtest.ui.main.MainViewModel
 import com.teko.hoangviet.androidtest.ui.product.detail.DetailProductViewModel
-import com.teko.hoangviet.androidtest.ui.product.detail.pricecomparing.PriceComparingFragment
 import com.teko.hoangviet.androidtest.ui.product.detail.pricecomparing.PriceComparingViewModel
 import com.teko.hoangviet.androidtest.ui.product.detail.productdescription.ProductDescriptionViewModel
 import com.teko.hoangviet.androidtest.ui.product.detail.technicalspec.TechnicalSpecViewModel
+import com.teko.hoangviet.androidtest.ui.product.list.ListProductViewModel
+import com.teko.hoangviet.androidtest.ui.search.SearchViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -47,4 +47,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TechnicalSpecViewModel::class)
     internal abstract fun bindTechnicalSpecViewModel(viewModel: TechnicalSpecViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    internal abstract fun bindSearchViewModel(viewModel: SearchViewModel): ViewModel
 }

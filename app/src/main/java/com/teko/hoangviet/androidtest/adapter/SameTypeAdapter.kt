@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import com.teko.hoangviet.androidtest.R
 import com.teko.hoangviet.androidtest.base.adapter.EndlessLoadingRecyclerViewAdapter
-import com.teko.hoangviet.androidtest.data.network.response.ProductResponse
+import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.ItemSameTypeBinding
 
 class SameTypeAdapter(context: Context, enableSelectedMode: Boolean) :

@@ -19,7 +19,7 @@ import com.teko.hoangviet.androidtest.data.network.api.NetworkConnectionIntercep
 import com.teko.hoangviet.androidtest.data.network.response.ListResponse;
 import com.teko.hoangviet.androidtest.data.network.response.ObjectResponse;
 import com.teko.hoangviet.androidtest.utils.Define;
-import com.teko.hoangviet.androidtest.custom.ViewController;
+import com.teko.hoangviet.androidtest.custom.view.ViewController;
 import com.teko.hoangviet.androidtest.data.network.response.BaseError;
 
 import java.io.IOException;

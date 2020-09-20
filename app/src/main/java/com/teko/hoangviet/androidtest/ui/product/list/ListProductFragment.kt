@@ -1,5 +1,6 @@
 package com.teko.hoangviet.androidtest.ui.product.list
 
+import android.text.InputType
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.beetech.productmanagement.di.annotation.LayoutId
@@ -7,14 +8,19 @@ import com.teko.hoangviet.androidtest.R
 import com.teko.hoangviet.androidtest.adapter.ListProductAdapter
 import com.teko.hoangviet.androidtest.base.ui.BaseFragment
 import com.teko.hoangviet.androidtest.data.local.model.LoadMoreData
-import com.teko.hoangviet.androidtest.data.network.response.ProductResponse
+import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentListProductBinding
 import com.teko.hoangviet.androidtest.extension.injectActivityViewModel
 import com.teko.hoangviet.androidtest.extension.injectViewModel
+import com.teko.hoangviet.androidtest.extension.onAvoidDoubleClick
 import com.teko.hoangviet.androidtest.ui.main.MainViewModel
 import com.teko.hoangviet.androidtest.ui.product.detail.DetailProductFragment
+import com.teko.hoangviet.androidtest.ui.search.SearchFragment
 import com.teko.hoangviet.androidtest.utils.Define
 import kotlinx.android.synthetic.main.fragment_list_product.*
+import kotlinx.android.synthetic.main.fragment_list_product.layout_search
+import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.android.synthetic.main.layout_search.view.*
 
 @LayoutId(R.layout.fragment_list_product)
 class ListProductFragment : BaseFragment<FragmentListProductBinding>() {
@@ -37,6 +43,10 @@ class ListProductFragment : BaseFragment<FragmentListProductBinding>() {
 
     override fun initView() {
         initAdapter()
+        layout_search.edt_search.apply {
+            inputType = InputType.TYPE_NULL
+            isEnabled = false
+        }
     }
 
     private fun initAdapter() {
@@ -75,6 +85,15 @@ class ListProductFragment : BaseFragment<FragmentListProductBinding>() {
                 handleListResponse(it)
             }
         })
+        layout_search.rl_search.onAvoidDoubleClick {
+            viewController.addFragment(SearchFragment::class.java, null)
+        }
+        layout_search.edt_search.onAvoidDoubleClick {
+            viewController.addFragment(SearchFragment::class.java, null)
+        }
+        layout_search.imv_back.onAvoidDoubleClick {
+            requireActivity().onBackPressed()
+        }
     }
 
     override fun getError(error: String?, code: Int) {

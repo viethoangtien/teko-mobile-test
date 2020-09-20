@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rl_search"
     android:layout_width="match_parent"
     android:layout_height="@dimen/search_frame_size"
     android:background="@drawable/bg_main_color">
@@ -26,6 +25,7 @@
         app:cardElevation="@dimen/elevation_8_dp">
 
         <RelativeLayout
+            android:id="@+id/rl_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -38,6 +38,7 @@
                 android:src="@drawable/ic_search" />
 
             <EditText
+                android:id="@+id/edt_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -47,9 +48,9 @@
                 android:layout_toRightOf="@id/imv_search"
                 android:background="@color/md_white_1000"
                 android:hint="@string/list_product_search_hint"
+                android:inputType="text"
                 android:lines="1"
                 android:maxLines="1"
-                android:inputType="text"
                 android:singleLine="true"
                 android:textColorHint="@color/color_hint_search"
                 android:textSize="@dimen/textsize_14_sp" />

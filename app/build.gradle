@@ -100,5 +100,9 @@ dependencies {
     //CustomView
     implementation "me.relex:circleindicator:$rootProject.circle_indicator_version"
 
+    //Room Database
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+    implementation "androidx.room:room-ktx:$rootProject.room_version"
+    kapt "androidx.room:room-compiler:$rootProject.room_version"
 
 }

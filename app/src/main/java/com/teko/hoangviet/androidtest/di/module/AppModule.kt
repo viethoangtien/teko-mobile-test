@@ -2,8 +2,8 @@ package com.teko.hoangviet.androidtest.di.module
 
 import android.app.Application
 import android.content.Context
-import com.teko.hoangviet.androidtest.data.preference.AppSharePreference
-import com.teko.hoangviet.androidtest.data.preference.SharePreference
+import com.teko.hoangviet.androidtest.data.local.preference.AppSharePreference
+import com.teko.hoangviet.androidtest.data.local.preference.SharePreference
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -18,6 +18,8 @@ class AppModule {
     @Provides
     @Singleton
     internal fun provideSharePreferences(context: Context): SharePreference =
-        AppSharePreference(context)
+        AppSharePreference(
+            context
+        )
 
 }

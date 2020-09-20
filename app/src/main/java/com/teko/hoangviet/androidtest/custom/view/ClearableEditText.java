@@ -1,4 +1,4 @@
-package com.teko.hoangviet.androidtest.custom;
+package com.teko.hoangviet.androidtest.custom.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

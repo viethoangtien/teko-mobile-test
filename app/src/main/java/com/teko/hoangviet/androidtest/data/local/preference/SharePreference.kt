@@ -1,4 +1,4 @@
-package com.teko.hoangviet.androidtest.data.preference
+package com.teko.hoangviet.androidtest.data.local.preference
 
 interface SharePreference {
     fun <T> put(key: String, value: T)

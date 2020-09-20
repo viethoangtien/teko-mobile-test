@@ -5,6 +5,7 @@ import com.teko.hoangviet.androidtest.ui.product.detail.pricecomparing.PriceComp
 import com.teko.hoangviet.androidtest.ui.product.detail.productdescription.ProductDescriptionFragment
 import com.teko.hoangviet.androidtest.ui.product.detail.technicalspec.TechnicalSpecFragment
 import com.teko.hoangviet.androidtest.ui.product.list.ListProductFragment
+import com.teko.hoangviet.androidtest.ui.search.SearchFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -24,4 +25,7 @@ abstract class FragmentBuilder {
 
     @ContributesAndroidInjector()
     abstract fun bindProductDescriptionFragment(): ProductDescriptionFragment
+
+    @ContributesAndroidInjector()
+    abstract fun bindSearchFragment(): SearchFragment
 }

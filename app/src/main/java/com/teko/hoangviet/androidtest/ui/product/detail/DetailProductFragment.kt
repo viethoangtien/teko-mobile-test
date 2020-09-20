@@ -10,7 +10,7 @@ import com.teko.hoangviet.androidtest.adapter.DetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.ImageDetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.SameTypeAdapter
 import com.teko.hoangviet.androidtest.base.ui.BaseFragment
-import com.teko.hoangviet.androidtest.data.network.response.ProductResponse
+import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentDetailProductBinding
 import com.teko.hoangviet.androidtest.extension.argument
 import com.teko.hoangviet.androidtest.extension.injectActivityViewModel

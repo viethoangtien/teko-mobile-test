@@ -1,10 +1,11 @@
-package com.teko.hoangviet.androidtest.data.preference
+package com.teko.hoangviet.androidtest.data.local.preference
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.teko.hoangviet.androidtest.utils.Define
 
-class AppSharePreference constructor(var context: Context?) : SharePreference {
+class AppSharePreference constructor(var context: Context?) :
+    SharePreference {
     val mPrefs: SharedPreferences
         get() = context?.getSharedPreferences(Define.PREF_NAME, Context.MODE_PRIVATE)!!
 

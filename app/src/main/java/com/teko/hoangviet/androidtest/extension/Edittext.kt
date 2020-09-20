@@ -4,6 +4,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 
 fun Pair<TextInputLayout, EditText>.addTextChangeListener() {
     second.addTextChangedListener(object : TextWatcher {

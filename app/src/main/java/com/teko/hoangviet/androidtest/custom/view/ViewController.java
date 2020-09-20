@@ -1,4 +1,4 @@
-package com.teko.hoangviet.androidtest.custom;
+package com.teko.hoangviet.androidtest.custom.view;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
