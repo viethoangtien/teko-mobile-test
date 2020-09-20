@@ -21,4 +21,5 @@
     <string name="tab_comparing">So sánh giá</string>
     <string name="show_more">Hiển thị nhiều hơn</string>
     <string name="same_type">Sản phẩm cùng loại</string>
+    <string name="no_data">Không có dữ liệu. Vui lòng thử lại.</string>
 </resources>

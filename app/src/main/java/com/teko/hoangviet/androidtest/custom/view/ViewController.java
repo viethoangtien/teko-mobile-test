@@ -106,15 +106,15 @@ public class ViewController<T extends BaseFragment> {
             newFragment.setViewController(this);
             fragmentTransaction.add(layoutId, newFragment, type.getSimpleName());
             if (currentFragment != null) {
-                if (hasAnimation) {
-                    fragmentTransaction.setCustomAnimations(R.anim.animation_in_delay, R.anim.animation_in_delay);
-                } else {
-                    fragmentTransaction.setCustomAnimations(R.anim.animation_none, R.anim.animation_none);
-                }
+//                if (hasAnimation) {
+//                    fragmentTransaction.setCustomAnimations(R.anim.animation_in_delay, R.anim.animation_in_delay);
+//                } else {
+//                    fragmentTransaction.setCustomAnimations(R.anim.animation_none, R.anim.animation_none);
+//                }
                 currentFragment.setUserVisibleHint(false);
-                if (isHideOldFragment) {
-                    fragmentTransaction.hide(currentFragment);
-                }
+//                if (isHideOldFragment) {
+//                    fragmentTransaction.hide(currentFragment);
+//                }
             }
             fragmentTransaction.commitAllowingStateLoss();
         }
@@ -178,15 +178,15 @@ public class ViewController<T extends BaseFragment> {
         if (listAddFragment.size() >= 2) {
             listAddFragment.remove(listAddFragment.size() - 1);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.remove(currentFragment);
             fragmentTransaction.setCustomAnimations(R.anim.trans_right_out, R.anim.trans_right_out);
+            fragmentTransaction.remove(currentFragment);
             currentFragment = listAddFragment.get(listAddFragment.size() - 1);
             if (data != null) {
                 currentFragment.setData(data);
             }
             currentFragment.setViewController(this);
             currentFragment.setUserVisibleHint(true);
-            fragmentTransaction.setCustomAnimations(R.anim.animation_none, R.anim.animation_none);
+//            fragmentTransaction.setCustomAnimations(R.anim.animation_none, R.anim.animation_none);
             fragmentTransaction.show(currentFragment);
             fragmentTransaction.commitAllowingStateLoss();
             currentFragment.backFromAddFragment();
@@ -197,6 +197,7 @@ public class ViewController<T extends BaseFragment> {
         } else {
             return false;
         }
+
     }
 
     public boolean removeAllFragmentExceptFirst(HashMap<String, Object> data) {

@@ -17,5 +17,5 @@ interface ProductDao {
     fun insertAllProduct(data: List<ProductResponse>)
 
     @Query("SELECT * FROM product WHERE name LIKE :listKeyWord")
-    fun search(listKeyWord: String): LiveData<List<ProductResponse>>
+    fun search(listKeyWord: List<String>): LiveData<List<ProductResponse>>
 }

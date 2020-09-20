@@ -13,6 +13,7 @@ import com.teko.hoangviet.androidtest.base.ui.BaseFragment
 import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentDetailProductBinding
 import com.teko.hoangviet.androidtest.extension.argument
+import com.teko.hoangviet.androidtest.extension.completableTimer
 import com.teko.hoangviet.androidtest.extension.injectActivityViewModel
 import com.teko.hoangviet.androidtest.extension.injectViewModel
 import com.teko.hoangviet.androidtest.ui.main.MainViewModel
@@ -45,8 +46,12 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
     }
 
     override fun initData() {
-        detailProductViewModel.setDetailProduct(detailProduct)
-        initDetailViewPager()
+        compositeDisposable.add(
+            completableTimer({
+                detailProductViewModel.setDetailProduct(detailProduct)
+                initDetailViewPager()
+            }, 310)
+        )
     }
 
     override fun initListener() {

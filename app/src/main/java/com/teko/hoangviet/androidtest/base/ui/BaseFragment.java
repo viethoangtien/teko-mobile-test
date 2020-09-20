@@ -41,6 +41,7 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
+import io.reactivex.disposables.CompositeDisposable;
 import retrofit2.HttpException;
 
 public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFragment {
@@ -50,6 +51,7 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFrag
 
     protected T binding;
     protected BaseLoadingDialog baseLoadingDialog;
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     /**
      * The ViewController for control fragments in an activity
@@ -74,6 +76,7 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFrag
         initData();
         initListener();
     }
+
 
     private void initProgressDialog() {
         baseLoadingDialog = BaseLoadingDialog.getInstance(requireContext());
@@ -256,6 +259,12 @@ public abstract class BaseFragment<T extends ViewDataBinding> extends DaggerFrag
 
     protected void getError(String error, int code) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.clear();
     }
 
     protected void showLoading() {

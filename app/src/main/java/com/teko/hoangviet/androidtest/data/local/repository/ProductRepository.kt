@@ -11,6 +11,6 @@ class ProductRepository @Inject constructor(val productDao: ProductDao) {
 
     fun getAllProduct() = productDao.getAllProduct()
 
-    fun search(listKeyWord:String) = productDao.search(listKeyWord)
+    fun search(listKeyWord: List<String>) = productDao.search(listKeyWord)
 
 }
