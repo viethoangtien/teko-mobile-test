@@ -54,6 +54,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         brv_search.setEnableRefresh(false)
         brv_search.setListLayoutManager(RecyclerView.VERTICAL)
         brv_search.setOnItemClickListener { recyclerViewAdapter, viewHolder, _, position ->
+            requireActivity().hideSoftKeyboard()
             viewController.addFragment(
                 DetailProductFragment::class.java, hashMapOf(
                     Define.Fragment.Argument.DETAIL_PRODUCT to recyclerViewAdapter.getItem(

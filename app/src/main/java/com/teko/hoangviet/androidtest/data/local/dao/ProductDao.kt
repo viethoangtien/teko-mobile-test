@@ -1,10 +1,8 @@
 package com.teko.hoangviet.androidtest.data.local.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 
 @Dao
@@ -16,6 +14,6 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllProduct(data: List<ProductResponse>)
 
-    @Query("SELECT * FROM product WHERE name LIKE :listKeyWord OR code LIKE :listKeyWord")
-    fun search(listKeyWord: List<String>): LiveData<List<ProductResponse>>
+    @RawQuery(observedEntities = [ProductResponse::class])
+    fun search(query: SupportSQLiteQuery): LiveData<List<ProductResponse>>
 }
