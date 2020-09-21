@@ -30,7 +30,7 @@ class BindingAdapter {
             price: Double?
         ) {
             price?.let {
-                text = NumberUtil.formatValue((it*100000).toInt().toString())
+                text = NumberUtil.formatValue(it)
                 paintFlags = paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             }
         }
@@ -41,7 +41,7 @@ class BindingAdapter {
             price: Double?
         ) {
             price?.let {
-                text = NumberUtil.formatValue((it*100000).toInt().toString())
+                text = NumberUtil.formatValue(it)
             }
         }
     }

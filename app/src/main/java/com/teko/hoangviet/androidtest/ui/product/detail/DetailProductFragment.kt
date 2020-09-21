@@ -1,22 +1,35 @@
 package com.teko.hoangviet.androidtest.ui.product.detail
 
+import android.graphics.Typeface
+import android.util.Log
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TableLayout
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.productmanagement.di.annotation.LayoutId
+import com.google.android.material.tabs.TabLayout
 import com.teko.hoangviet.androidtest.R
 import com.teko.hoangviet.androidtest.adapter.DetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.ImageDetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.SameTypeAdapter
 import com.teko.hoangviet.androidtest.adapter.TAB_TECHNICAL
 import com.teko.hoangviet.androidtest.base.ui.BaseFragment
+import com.teko.hoangviet.androidtest.data.local.model.Cart
 import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentDetailProductBinding
 import com.teko.hoangviet.androidtest.extension.*
 import com.teko.hoangviet.androidtest.ui.main.MainViewModel
+import com.teko.hoangviet.androidtest.utils.NumberUtil
 import kotlinx.android.synthetic.main.fragment_detail_product.*
+import kotlinx.android.synthetic.main.layout_cart.*
+import kotlinx.android.synthetic.main.layout_cart.view.*
+import kotlinx.android.synthetic.main.layout_quantity.view.*
 import kotlinx.android.synthetic.main.layout_toolbar_product.view.*
+import kotlinx.android.synthetic.main.layout_toolbar_product.view.tv_price
 
 @LayoutId(R.layout.fragment_detail_product)
 class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
@@ -62,6 +75,17 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
                 binding.productResponse = it
             }
         })
+        detailProductViewModel.getCart(detailProduct.id!!).observe(this, Observer {
+            it?.let {
+                setQuantity(it.quantity, isShowBadge = true)
+
+            } ?: kotlin.run {
+                setQuantity(1, isShowBadge = false)
+            }
+        })
+        detailProductViewModel.quantityBadge.observe(this, Observer {
+            toolbar_product.tv_badge.setNumber(it)
+        })
         mainViewModel.listProductLiveData.observe(this, Observer {
             it?.let {
                 compositeDisposable.add(
@@ -71,9 +95,26 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
                 )
             }
         })
+        quantity_view.setOnQuantityListener {
+            layout_cart.tv_price.text = NumberUtil.formatValueVnd(detailProduct.price!! * it)
+        }
+        layout_cart.rl_price.onAvoidDoubleClick {
+            detailProductViewModel.saveCart(
+                Cart(
+                    productId = detailProduct.id!!,
+                    quantity = quantity_view.tv_selected.text.toString().toInt()
+                )
+            )
+        }
         toolbar_product.imv_back.onAvoidDoubleClick {
             viewController.backFromAddFragment(null)
         }
+    }
+
+    private fun setQuantity(quantity: Int, isShowBadge: Boolean = false) {
+        if (isShowBadge) toolbar_product.tv_badge.setNumber(number = quantity)
+        layout_cart.tv_price.text = NumberUtil.formatValueVnd(detailProduct.price!! * quantity)
+        layout_cart.quantity_view.setQuantity(quantity)
     }
 
     private fun initDetailViewPager() {

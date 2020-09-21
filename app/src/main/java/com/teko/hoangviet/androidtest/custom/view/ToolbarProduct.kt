@@ -28,7 +28,7 @@ class ToolbarProduct(context: Context?, attrs: AttributeSet?) :
     fun setData(productResponse: ProductResponse) {
         tv_name_product.text = productResponse.name
         productResponse.price?.let {
-            tv_price.text = "${NumberUtil.formatValue((it * 100000).toInt().toString())} đ"
+            tv_price.text = NumberUtil.formatValueVnd(it)
         }
     }
 

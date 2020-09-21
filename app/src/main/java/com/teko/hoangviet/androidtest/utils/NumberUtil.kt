@@ -14,9 +14,17 @@ object NumberUtil {
         }
     }
 
-    fun formatValue(value: String): String {
+    fun formatValue(value: Double): String {
         try {
-            return formatter.format(removeSpecialCharacters(value).toInt())
+            return formatter.format(removeSpecialCharacters((value*100000).toInt().toString()).toInt())
+        } catch (e: NumberFormatException) {
+            return ""
+        }
+    }
+
+    fun formatValueVnd(value: Double): String {
+        try {
+            return "${formatter.format(removeSpecialCharacters((value*100000).toInt().toString()).toInt())} đ"
         } catch (e: NumberFormatException) {
             return ""
         }

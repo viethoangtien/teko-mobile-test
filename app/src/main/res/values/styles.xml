@@ -15,7 +15,9 @@
 
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
-        <item name="android:textSize">@dimen/textsize_12_sp</item>
+        <item name="android:textSize">@dimen/textsize_13_sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/lato_regular</item>
     </style>
 
 </resources>

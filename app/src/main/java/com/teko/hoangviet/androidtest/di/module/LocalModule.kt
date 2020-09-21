@@ -15,4 +15,7 @@ class LocalModule {
 
     @Provides
     internal fun provideProductDao(appDatabase: AppDatabase) = appDatabase.productDao()
+
+    @Provides
+    internal fun provideCartDao(appDatabase: AppDatabase) = appDatabase.cartDao()
 }

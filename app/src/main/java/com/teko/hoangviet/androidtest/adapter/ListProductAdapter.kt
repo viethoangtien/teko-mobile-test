@@ -51,7 +51,7 @@ class ListProductAdapter(context: Context, enableSelectedMode: Boolean) :
                                     intArrayOf(Color.BLUE)
                                 )
                             val highlightSpan =
-                                TextAppearanceSpan(null, Typeface.BOLD, -1, blueColor, null);
+                                TextAppearanceSpan(null, Typeface.BOLD, -1, blueColor, null)
                             spannable.setSpan(
                                 highlightSpan,
                                 startPos,
