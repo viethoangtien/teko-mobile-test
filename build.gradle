@@ -88,4 +88,6 @@ ext {
     //Room Database
     room_version = '2.2.5'
 
+    deploygate_version = '4.3.0'
+
 }

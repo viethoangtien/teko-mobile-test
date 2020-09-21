@@ -105,4 +105,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$rootProject.room_version"
     kapt "androidx.room:room-compiler:$rootProject.room_version"
 
+    //Deploygate
+    implementation "com.deploygate:sdk:$rootProject.deploygate_version"
+
 }

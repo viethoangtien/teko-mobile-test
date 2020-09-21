@@ -19,7 +19,7 @@
     </item>
 
     <item
-        android:width="32dp"
+        android:width="35dp"
         android:height="16dp"
         android:left="10dp">
         <shape>

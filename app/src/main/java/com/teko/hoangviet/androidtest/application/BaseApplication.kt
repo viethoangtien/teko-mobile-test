@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import androidx.databinding.library.BuildConfig
 import androidx.fragment.app.Fragment
+import com.deploygate.sdk.DeployGate
 import com.teko.hoangviet.androidtest.di.component.DaggerAppComponent
 import com.teko.hoangviet.androidtest.utils.LogUtil
 import dagger.android.AndroidInjector
@@ -40,5 +41,6 @@ class BaseApplication : Application(), HasActivityInjector, HasSupportFragmentIn
             .application(this)
             .build()
             .inject(this)
+        DeployGate.install(this)
     }
 }
