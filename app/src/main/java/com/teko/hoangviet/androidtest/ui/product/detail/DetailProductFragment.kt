@@ -9,6 +9,7 @@ import com.teko.hoangviet.androidtest.R
 import com.teko.hoangviet.androidtest.adapter.DetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.ImageDetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.SameTypeAdapter
+import com.teko.hoangviet.androidtest.adapter.TAB_TECHNICAL
 import com.teko.hoangviet.androidtest.base.ui.BaseFragment
 import com.teko.hoangviet.androidtest.data.local.model.ProductResponse
 import com.teko.hoangviet.androidtest.databinding.FragmentDetailProductBinding
@@ -44,6 +45,7 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
     }
 
     override fun initData() {
+        showLoading()
         compositeDisposable.add(
             completableTimer({
                 detailProductViewModel.setDetailProduct(detailProduct)
@@ -62,7 +64,11 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
         })
         mainViewModel.listProductLiveData.observe(this, Observer {
             it?.let {
-                handleListResponse(it)
+                compositeDisposable.add(
+                    completableTimer({
+                        handleListResponse(it)
+                    }, 310)
+                )
             }
         })
         toolbar_product.imv_back.onAvoidDoubleClick {
@@ -77,6 +83,7 @@ class DetailProductFragment : BaseFragment<FragmentDetailProductBinding>() {
             offscreenPageLimit = 2
         }
         tab_detail.setupWithViewPager(vp_detail_product)
+        vp_detail_product.currentItem = TAB_TECHNICAL
     }
 
     private fun initImageAdapter(imageUrl: String?) {

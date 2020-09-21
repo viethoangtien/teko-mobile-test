@@ -92,9 +92,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                it?.let {
-                    searchViewModel.search(it).observe(this, Observer { dataFilter ->
+                it?.let { keySearch ->
+                    searchViewModel.search(keySearch).observe(this, Observer { dataFilter ->
                         dataFilter?.let {
+                            listProductAdapter.highlightTextSearch(keySearch.split(' '))
                             brv_search.refresh(it)
                         }
                     })
