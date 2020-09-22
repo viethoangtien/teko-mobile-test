@@ -11,9 +11,9 @@
     </data>
 
     <RelativeLayout
-        android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true">
 
         <RelativeLayout
             android:id="@+id/rl_info_product"
@@ -81,6 +81,7 @@
                         android:id="@+id/tv_discount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:textSize="@dimen/textsize_12_sp"
                         app:priceDiscount="@{productResponse.price}"
                         tools:text="10.970.000" />
@@ -92,7 +93,8 @@
                         android:layout_marginStart="@dimen/margin_4_dp"
                         android:layout_toRightOf="@id/tv_discount"
                         android:background="@drawable/bg_triangle_discount"
-                        android:paddingStart="@dimen/content_padding_8_dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/content_padding_12_dp"
                         android:text="-100%"
                         android:textColor="@color/md_white_1000"
                         android:textSize="@dimen/textsize_12_sp" />

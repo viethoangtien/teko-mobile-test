@@ -3,24 +3,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:width="12dp"
-        android:height="12dp"
-        android:left="4dp"
-        android:top="2dp">
-        <rotate
-            android:fromDegrees="-45"
-            android:pivotX="50%"
-            android:pivotY="50%">
-            <shape>
-                <solid android:color="@color/color_main_start" />
-                <corners android:radius="2dp" />
-            </shape>
-        </rotate>
-    </item>
-
-    <item
-        android:width="35dp"
-        android:height="16dp"
+        android:width="40dp"
+        android:height="18dp"
         android:left="10dp">
         <shape>
             <gradient
@@ -31,6 +15,20 @@
                 android:bottomRightRadius="2dp"
                 android:topRightRadius="2dp" />
         </shape>
+    </item>
+
+    <item
+        android:width="12.6dp"
+        android:height="12.6dp"
+        android:left="10dp">
+        <rotate
+            android:fromDegrees="45"
+            android:pivotX="0"
+            android:pivotY="0">
+            <shape>
+                <solid android:color="@color/color_main_start" />
+            </shape>
+        </rotate>
     </item>
 
 </layer-list>
