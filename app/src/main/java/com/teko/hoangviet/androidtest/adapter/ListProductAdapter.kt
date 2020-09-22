@@ -37,6 +37,7 @@ class ListProductAdapter(context: Context, enableSelectedMode: Boolean) :
         NormalViewHolder<ItemListProductBinding, ProductResponse>(binding) {
         override fun bind(data: ProductResponse) {
             binding.productResponse = data
+            val spannable = SpannableString(data.name)
             if (textSearch.isNotEmpty()) {
                 textSearch.forEach { key ->
                     if (key.isNotEmpty()) {
@@ -44,7 +45,6 @@ class ListProductAdapter(context: Context, enableSelectedMode: Boolean) :
                             data.name?.toLowerCase(Locale.US)?.indexOf(key.toLowerCase(Locale.US))!!
                         val endPos = startPos + key.length
                         if (startPos != -1) {
-                            val spannable = SpannableString(data.name)
                             val blueColor =
                                 ColorStateList(
                                     arrayOf(intArrayOf()),

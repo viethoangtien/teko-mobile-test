@@ -1,17 +1,10 @@
 package com.teko.hoangviet.androidtest.ui.product.detail
 
-import android.graphics.Typeface
-import android.util.Log
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TableLayout
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.productmanagement.di.annotation.LayoutId
-import com.google.android.material.tabs.TabLayout
 import com.teko.hoangviet.androidtest.R
 import com.teko.hoangviet.androidtest.adapter.DetailProductAdapter
 import com.teko.hoangviet.androidtest.adapter.ImageDetailProductAdapter
